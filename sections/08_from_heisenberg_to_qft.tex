@@ -1,0 +1,50 @@
+\section{ハイゼンベルク描像から場の量子論へ}
+
+ここまでで、一粒子波動関数や固定粒子数の波動関数を基本変数とする記述は、非相対論的近似や多体系の基礎づけには有効でも、相対論的かつ粒子数可変の状況では根本的でないことが見えてきた。そこで、状態ベクトルの時間依存を追うよりも、時空の各点に割り当てられた演算子の振る舞いを前面に出す記述へ移る。
+
+\subsection{時間発展演算子}
+これまでの記述（シュレディンガー描像）では、演算子は時間に依存せず、状態ベクトル $\psi(t)$ が時間発展を担っていた。しかし、物理的に観測可能なのは期待値 $\langle \hat{A} \rangle = (\psi(t), \hat{A} \psi(t))$ であり、この時間依存性を演算子側に担わせても同じ物理を記述できる。
+
+時間発展が連続で確率を保存するなら、状態は一パラメータのユニタリ演算子族 $\hat{U}(t)$ によって
+\[
+\psi(t) = \hat{U}(t)\psi(0), \quad \hat{U}(0)=1, \quad \hat{U}(t+s)=\hat{U}(t)\hat{U}(s)
+\]
+と書ける。微小時間 $\delta t$ に対しては
+\[
+\hat{U}(\delta t) = 1 - \frac{i}{\hbar}\hat{H}\delta t + O(\delta t^2)
+\]
+と展開でき、ユニタリ性から生成子 $\hat{H}$ は自己共役でなければならない。したがって $\hat{U}(t)$ は
+\[
+\frac{d}{dt}\hat{U}(t) = -\frac{i}{\hbar}\hat{H}\hat{U}(t)
+\]
+を満たす。ハミルトニアン $\hat{H}$ が時間に依存しない場合、この微分方程式の解は
+\[
+\hat{U}(t) = \exp\left( -\frac{i\hat{H}t}{\hbar} \right)
+\]
+である。
+
+\subsection{ハイゼンベルクの方程式}
+ハイゼンベルク描像では、状態ベクトルを $\psi_H = \psi(0)$ に固定し、演算子を
+\[
+\hat{A}_H(t) = \hat{U}^\dagger(t)\hat{A}_S(t)\hat{U}(t)
+\]
+と定義する。これを時間微分すると、
+\begin{align*}
+\frac{d}{dt}\hat{A}_H(t)
+&= \frac{d\hat{U}^\dagger}{dt}\hat{A}_S\hat{U}
++ \hat{U}^\dagger \frac{\partial \hat{A}_S}{\partial t}\hat{U}
++ \hat{U}^\dagger \hat{A}_S \frac{d\hat{U}}{dt} \\
+&= \frac{i}{\hbar}\hat{U}^\dagger \hat{H}\hat{A}_S\hat{U}
++ \hat{U}^\dagger \frac{\partial \hat{A}_S}{\partial t}\hat{U}
+- \frac{i}{\hbar}\hat{U}^\dagger \hat{A}_S\hat{H}\hat{U}
+\end{align*}
+となる。したがって、
+\[
+\frac{d}{dt}\hat{A}_H(t) = \frac{1}{i\hbar}[\hat{A}_H(t), \hat{H}] + \left(\frac{\partial \hat{A}}{\partial t}\right)_H
+\]
+を得る。これは古典力学におけるポアソン括弧を用いたハミルトンの運動方程式と直接的な対応関係にある。
+
+\subsection{局所演算子としての場}
+ハイゼンベルク描像では、時間に依存するのは状態ではなく演算子である。多自由度系や連続自由度系では、この考えを時空点でラベルづけされた演算子族へ拡張するのが自然である。相対論的理論では、時間と空間をまとめて時空座標 $x^\mu=(t,\mathbf{x})$ とみなし、局所場 $\hat{\phi}(x)$ や $\hat{\psi}(x)$ を考える。
+
+この定式化では、一粒子状態や多粒子状態は、これらの場から得られる生成演算子が真空ベクトルに作用したものとして表される。次節では、この構造を最も単純な自由スカラー場で具体的に書き下す。

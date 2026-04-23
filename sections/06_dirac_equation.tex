@@ -1,0 +1,102 @@
+\section{ディラック方程式}
+
+\subsection{ディラックの着想：KG方程式の因数分解}
+クライン--ゴルドン方程式はローレンツ対称性を満たしたが、一粒子解釈には失敗した。そこで次に考えるべきなのは、相対論的エネルギー・運動量関係は保ったまま、シュレーディンガー方程式と同じく時間について1階の微分方程式
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \psi = \hat{H}_D \psi
+\end{equation}
+を目指す。相対論的な対称性（時間と空間の対等性）を保つためには、ハミルトニアン $\hat{H}_D$ は空間微分（運動量演算子）についても1階でなければならない。そこで、ハミルトニアンを以下の線形結合として仮定する：
+\begin{equation}
+    \hat{H}_D = c (\alpha_1 \hat{p}_x + \alpha_2 \hat{p}_y + \alpha_3 \hat{p}_z) + \beta m c^2
+\end{equation}
+
+\subsection{ディラック代数の導出}
+このハミルトニアンが相対論的なエネルギー・運動量の関係 $E^2 = c^2 p^2 + m^2 c^4$ を満たすためには、$\hat{H}_D^2$ がクライン--ゴルドン方程式の演算子と一致しなければならない。
+実際に $\hat{H}_D^2$ を計算すると：
+\begin{equation}
+    \hat{H}_D^2 = c^2 \sum_{i,j} \frac{\alpha_i \alpha_j + \alpha_j \alpha_i}{2} \hat{p}_i \hat{p}_j + mc^3 \sum_i (\alpha_i \beta + \beta \alpha_i) \hat{p}_i + \beta^2 m^2 c^4
+\end{equation}
+これが $c^2 \sum \hat{p}_i^2 + m^2 c^4$ と一致するための条件として、係数 $\alpha_i, \beta$ が以下の反交換関係（ディラック代数）を満たすことが要求される：
+\begin{align}
+    \{ \alpha_i, \alpha_j \} &= 2\delta_{ij} \\
+    \{ \alpha_i, \beta \} &= 0 \\
+    \alpha_i^2 = \beta^2 &= 1
+\end{align}
+これらの関係は通常の複素数では満たされず、$\alpha_i, \beta$ は行列でなければならない。
+
+\subsection{ディラック方程式}
+ここで
+\[
+\gamma^0 := \beta,
+\qquad
+\gamma^i := \beta\alpha_i
+\qquad (i=1,2,3)
+\]
+と定義すると、反交換関係は
+\[
+\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}
+\]
+と書き直せる。ただし $\eta^{\mu\nu}=\mathrm{diag}(1,-1,-1,-1)$ はミンコフスキー計量である。このとき、ディラックの方程式はハミルトン形式
+\[
+i\hbar \frac{\partial}{\partial t}\psi
+=
+\left(
+-i\hbar c\,\boldsymbol{\alpha}\cdot \nabla + \beta mc^2
+\right)\psi
+\]
+から、ローレンツ共変な形
+\[
+\left(i\hbar \gamma^\mu \partial_\mu - mc\right)\psi = 0
+\]
+へまとめられる。これがディラック方程式である。
+
+さらに、
+\[
+\left(i\hbar \gamma^\mu \partial_\mu + mc\right)
+\left(i\hbar \gamma^\nu \partial_\nu - mc\right)\psi
+=
+\left(-\hbar^2\partial_\mu\partial^\mu + m^2c^2\right)\psi
+=0
+\]
+となるから、ディラック方程式の各成分はクライン--ゴルドン方程式も満たす。すなわち、ディラック方程式は相対論的エネルギー・運動量関係と両立しながら、時間微分・空間微分の双方に1階の方程式を与えている。
+
+\subsection{スピノールとローレンツ共変性}
+上述の関係式を満たす最小の表現は $4\times4$ 行列であり、したがって状態は4成分複素ベクトル値の波動関数
+\begin{equation}
+    \psi(x) = \begin{pmatrix} \psi_1(x) \\ \psi_2(x) \\ \psi_3(x) \\ \psi_4(x) \end{pmatrix}
+\end{equation}
+で記述される。このような対象をスピノールという。ローレンツ変換 $x'^\mu=\Lambda^\mu{}_\nu x^\nu$ の下でスピノールは
+\[
+\psi'(x') = S(\Lambda)\psi(x)
+\]
+と変換し、行列 $S(\Lambda)$ が
+\[
+S(\Lambda)^{-1}\gamma^\mu S(\Lambda)
+=
+\Lambda^\mu{}_\nu \gamma^\nu
+\]
+を満たすとき、ディラック方程式は変換後も同じ形を保つ。したがって、この方程式は特殊相対論の要請に適合している。
+
+固定時刻での一粒子解釈をとるなら、この理論のヒルベルト空間は
+\[
+\mathcal{H}_{\mathrm{Dirac}}
+=
+L^2(\mathbb{R}^3,d^3x;\mathbb{C}^4)
+\]
+である。内積は
+\[
+\langle \psi,\varphi \rangle
+=
+\int_{\mathbb{R}^3} d^3x\, \psi(\mathbf{x})^\dagger \varphi(\mathbf{x})
+\]
+で与えられる。$\mathbb{C}^4$ は4成分スピノールの内部自由度を表している。
+
+4成分は粒子と反粒子、および各々に付随する2つのスピン自由度に対応する。この内部自由度が、電子のスピン $1/2$ を記述する構造として現れる。
+
+\subsection{ディラック方程式の意義}
+以上を踏まえると、ディラック方程式の意義は次の二点にまとめられる。
+\begin{enumerate}
+    \item \textbf{スピンの自然な導入}：電子が持つ回転に関する二値の内部自由度が、理論の数学的構造から自動的に現れ、それがスピン $1/2$ として解釈される。
+    \item \textbf{反粒子自由度の出現}：負エネルギー枝をもつことは一粒子解釈の限界を示すが、場として量子化するとその自由度は反粒子として自然に現れる。
+\end{enumerate}
+しかし、ここで得られたのはあくまで相対論的な一粒子方程式であり、粒子の生成・消滅や真空の構造を理論の内部で扱うには、なお場の量子論への移行が必要である。

@@ -1,0 +1,94 @@
+\section{$n$ 粒子系の量子力学}
+
+一粒子相対論の困難は、「粒子数を固定したまま量子論を作る」という前提そのものを見直す必要があることを示している。しかし場の量子論へ進む前に、まず固定粒子数の理論がどこまで有効で、どこに限界があるかを明確にしておく必要がある。そこで次に、通常の量子力学が多粒子系をどのように記述するかを整理する。
+
+\subsection{固定粒子数の状態空間}
+固定粒子数理論の出発点は、区別可能な $n$ 個の粒子なら、それぞれの自由度を一粒子空間のテンソル積で記述できる、ということである。一粒子系では、状態は位置 $\mathbf{x}$ を変数にもつ波動関数 $\psi(\mathbf{x},t)$ で表された。これを $n$ 個の粒子へ拡張すると、状態は各粒子の位置
+\[
+(\mathbf{x}_1,\mathbf{x}_2,\dots,\mathbf{x}_n)
+\]
+を変数にもつ波動関数
+\[
+\Psi(\mathbf{x}_1,\mathbf{x}_2,\dots,\mathbf{x}_n,t)
+\]
+で表される。スピンを無視した一粒子空間は
+\[
+\mathcal{H}_1 = L^2(\mathbb{R}^3,d^3x)
+\]
+であり、したがって $n$ 粒子系のヒルベルト空間は一粒子空間のテンソル積
+\[
+\mathcal{H}_n = \mathcal{H}_1^{\otimes n}
+\]
+として構成される。座標表示を用いれば
+\[
+\mathcal{H}_n \simeq L^2((\mathbb{R}^3)^n,d^{3n}x)
+\]
+と同一視できる。粒子がスピン $s$ をもつ場合には、一粒子空間はさらに内部自由度を表す有限次元空間 $\mathbb{C}^{2s+1}$ を掛けて
+\[
+\mathcal{H}_1^{(s)}
+=
+L^2(\mathbb{R}^3,d^3x)\otimes \mathbb{C}^{2s+1}
+\]
+とする。
+
+非相対論的な $n$ 粒子ハミルトニアンの典型例は
+\[
+\hat{H}_n
+= \sum_{i=1}^n \left( -\frac{\hbar^2}{2m_i}\nabla_i^2 + V_{\mathrm{ext}}(\mathbf{x}_i) \right)
++ \sum_{1\le i<j\le n} U(\mathbf{x}_i-\mathbf{x}_j)
+\]
+であり、外場との相互作用と粒子間相互作用を同時に含む。時間発展は
+\[
+i\hbar \frac{\partial}{\partial t}\Psi = \hat{H}_n \Psi
+\]
+で与えられる。
+
+\subsection{同種粒子と量子統計}
+しかし現実には、電子同士や光子同士のように区別できない粒子を扱う必要がある。したがって、区別可能粒子のテンソル積空間から出発した上で、粒子交換に対して物理状態がどう振る舞うべきかを課す必要がある。粒子が区別可能であれば、各 $\mathbf{x}_i$ は「第 $i$ 粒子」の座標として扱える。このとき、$n$ 粒子波動関数全体は複素数値関数のベクトル空間をなし、粒子の交換
+\[
+s_{ij} : (\mathbf{x}_1,\dots,\mathbf{x}_i,\dots,\mathbf{x}_j,\dots,\mathbf{x}_n)
+\mapsto
+(\mathbf{x}_1,\dots,\mathbf{x}_j,\dots,\mathbf{x}_i,\dots,\mathbf{x}_n)
+\]
+は配置空間上の写像として定義できる。したがって、波動関数への作用
+\[
+(\hat{P}_{ij}\Psi)(\mathbf{x}_1,\dots,\mathbf{x}_n)
+:=
+\Psi(s_{ij}(\mathbf{x}_1,\dots,\mathbf{x}_n))
+\]
+を考えることができる。これは固定した写像 $s_{ij}$ との合成であるから、
+\[
+\hat{P}_{ij}(a\Psi+b\Phi)
+=
+a\,\hat{P}_{ij}\Psi+b\,\hat{P}_{ij}\Phi
+\]
+が成り立ち、$\hat{P}_{ij}$ は線形演算子である。
+
+しかし、電子同士や光子同士のような同種粒子では、粒子のラベルそのものに物理的意味はない。したがって、この交換は物理状態を変えず、波動関数には高々全体位相しか掛からない。すなわち
+\[
+\hat{P}_{ij}\Psi = \lambda_{ij}\Psi,
+\qquad |\lambda_{ij}|=1
+\]
+である。さらに、交換を二回行えば元に戻るので $\hat{P}_{ij}^2=1$ であり、
+\[
+\lambda_{ij}^2=1
+\]
+が従う。したがって $\lambda_{ij}=\pm 1$ である。ゆえに、同種粒子の波動関数は交換に対して
+\[
+\Psi(\dots,\mathbf{x}_i,\dots,\mathbf{x}_j,\dots)
+= \pm
+\Psi(\dots,\mathbf{x}_j,\dots,\mathbf{x}_i,\dots)
+\]
+を満たす。符号が $+$ の場合がボース粒子、$-$ の場合がフェルミ粒子である。特にフェルミ粒子では
+\[
+\Psi(\dots,\mathbf{x},\dots,\mathbf{x},\dots)=0
+\]
+となるため、同じ一粒子状態を二つ以上占められない。これがパウリの排他原理である。
+
+したがって、同種ボース粒子・同種フェルミ粒子の物理的ヒルベルト空間はそれぞれ
+\[
+\mathcal{H}_n^{\mathrm{B}} = \operatorname{Sym}^n \mathcal{H}_1,
+\qquad
+\mathcal{H}_n^{\mathrm{F}} = \wedge^n \mathcal{H}_1
+\]
+である。ここで $\operatorname{Sym}^n \mathcal{H}_1$ は $n$ 重テンソル積の対称部分空間、$\wedge^n \mathcal{H}_1$ は反対称部分空間である。

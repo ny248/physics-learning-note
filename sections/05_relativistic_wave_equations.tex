@@ -1,0 +1,89 @@
+\section{相対論的波動方程式}
+
+\subsection{クライン--ゴルドン方程式の導出}
+相対論的理論でまず保ちたいのは、エネルギーと運動量が特殊相対論の関係式
+\begin{equation}
+    E^2 - c^2 \mathbf{p}^2 = m^2 c^4
+\end{equation}
+を満たすことである。そこで、非相対論的量子力学と同様に
+\[
+\hat{E}=i\hbar\frac{\partial}{\partial t},
+\qquad
+\hat{\mathbf{p}}=-i\hbar\nabla
+\]
+を用い、エネルギー・運動量関係を波動関数 $\phi(x)$ に対する微分方程式へ読み替える。このとき、複素関数 $\phi(x)$ に対してクライン--ゴルドン（KG）方程式
+\begin{equation}
+    \left( \frac{1}{c^2} \frac{\partial^2}{\partial t^2} - \nabla^2 + \frac{m^2 c^2}{\hbar^2} \right) \phi(\mathbf{x}, t) = 0
+\end{equation}
+が得られる。
+
+\subsubsection*{クライン--ゴルドン方程式の状態空間}
+非相対論的一粒子理論と同様に、固定時刻での関数 $\phi(\mathbf{x},t)$ を状態とみなしたくなるが、クライン--ゴルドン方程式は時間について2階であるから、初期値として必要なのは $\phi(\mathbf{x},0)$ だけではなく $\partial_t\phi(\mathbf{x},0)$ でもある。したがって、まず考えるべき対象は単なる関数空間ではなく、方程式の解空間
+\[
+\mathrm{Sol}_{\mathrm{KG}}
+:=
+\left\{
+\phi \ \middle|\
+\left( \frac{1}{c^2} \partial_t^2 - \nabla^2 + \frac{m^2 c^2}{\hbar^2} \right)\phi = 0
+\right\}
+\]
+である。
+
+この解空間の上には、時間に依らない双線形形式
+\[
+(\phi_1,\phi_2)_{\mathrm{KG}}
+:=
+i\hbar \int_{t=\mathrm{const}} d^3x\,
+\left(
+\phi_1^* \partial_t \phi_2
+-
+(\partial_t \phi_1^*)\phi_2
+\right)
+\]
+が定まる。正エネルギー解の部分空間に制限すれば、これを内積として一粒子ヒルベルト空間を作ることができる。しかし次節で見るように、負エネルギー枝を理論から切り捨てることはできず、この一粒子解釈は自然な全体像にはならない。
+
+\subsection{負エネルギー解が棄却できない理由}
+平面波解
+\[
+\phi(x)=e^{\frac{i}{\hbar}(\mathbf{p}\cdot \mathbf{x}-Et)}
+\]
+を代入すると、分散関係
+\[
+E^2=c^2\mathbf{p}^2+m^2c^4
+\]
+から
+\[
+E=\pm E_{\mathbf{p}},
+\qquad
+E_{\mathbf{p}}:=\sqrt{c^2\mathbf{p}^2+m^2c^4}
+\]
+が従う。したがって一般解は
+\[
+\phi(x)=
+\int \frac{d^3p}{(2\pi\hbar)^3}
+\left(
+a(\mathbf{p})e^{\frac{i}{\hbar}(\mathbf{p}\cdot \mathbf{x}-E_{\mathbf{p}}t)}
++
+b(\mathbf{p})e^{\frac{i}{\hbar}(\mathbf{p}\cdot \mathbf{x}+E_{\mathbf{p}}t)}
+\right)
+\]
+の形をとり、方程式が時間について2階である以上、初期値 $\phi(\mathbf{x},0)$ と $\partial_t\phi(\mathbf{x},0)$ を任意に与えるためには両方の枝が必要になる。
+
+さらに、クライン--ゴルドン方程式には保存電流
+\[
+j^\mu
+= \frac{i\hbar}{2m}
+\left(
+\phi^*\partial^\mu \phi
+-
+(\partial^\mu \phi^*)\phi
+\right)
+\]
+が伴うが、平面波に対しては
+\[
+j^0 = \frac{E}{mc^2}|\phi|^2
+\]
+となる。したがって負エネルギー解では $j^0<0$ となり、$j^0$ を確率密度と読む一粒子解釈は破綻する。ここに、相対論的量子論を単純な一粒子波動方程式として理解することの限界が現れている。
+
+\subsection{再解釈：一粒子から多粒子へ}
+この「負エネルギー解の棄却不可能性」こそが、粒子数が不変であるという「一粒子力学」の限界を露呈させた。これを解決するには、負エネルギー状態を「反粒子」として解釈する場の量子論への移行が必要となる。

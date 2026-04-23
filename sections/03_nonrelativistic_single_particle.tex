@@ -1,0 +1,286 @@
+\section{単一粒子の非相対論的な量子力学}
+
+\subsection{シュレーディンガー方程式の導出}
+単一粒子の非相対論的理論では、まず「古典極限では粒子のエネルギー関係に戻り、同時に波としての振る舞いを記述する」時間発展方程式を求めたい。出発点は、古典力学における粒子のエネルギーと運動量の関係
+\begin{equation}
+    E = \frac{\mathbf{p}^2}{2m} + V(\mathbf{x})
+\end{equation}
+である。一方、光についてはプランクとアインシュタインにより
+\[
+E = h\nu,\qquad p=\frac{h}{\lambda}
+\]
+が成り立つことが分かっていた。ド・ブロイはこの関係を物質粒子にも拡張し、角振動数 $\omega=2\pi\nu$ と波数 $\mathbf{k}$ を用いて
+\[
+E = \hbar \omega,\qquad \mathbf{p} = \hbar \mathbf{k}
+\]
+を仮定した。そこで粒子の状態を複素振幅 $\psi(\mathbf{x},t)$ で表し、その絶対値の二乗
+\[
+|\psi(\mathbf{x},t)|^2
+\]
+を位置の確率密度と読む。全確率が有限で
+\[
+\int_{\mathbb{R}^3} |\psi(\mathbf{x},t)|^2\,d^3x < \infty
+\]
+であることを要求すると、固定時刻での状態空間として
+\[
+\mathcal{H}_1 := L^2(\mathbb{R}^3,d^3x)
+\]
+を選ぶのが自然である。
+
+まず、波数 $\mathbf{k}$ と角振動数 $\omega$ をもつ平面波
+\[
+\psi(\mathbf{x}, t) = e^{i(\mathbf{k} \cdot \mathbf{x} - \omega t)}
+\]
+を考える。これは厳密には $L^2(\mathbb{R}^3)$ の元ではないが、一般の波束をフーリエ積分で記述するときの基本成分になっている。実際、波束は平面波の重ね合わせ
+\[
+\psi(\mathbf{x},t)
+=
+\int \frac{d^3k}{(2\pi)^3}\,\tilde{\psi}(\mathbf{k})e^{i(\mathbf{k}\cdot \mathbf{x}-\omega t)}
+\]
+として表される。したがって、平面波に対して成り立つ微分作用素の関係式は、重ね合わせによって一般の波束にも引き継がれる。平面波に時間微分および空間微分を作用させると、
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \psi = \hbar \omega \psi = E \psi, \quad -i\hbar \nabla \psi = \hbar \mathbf{k} \psi = \mathbf{p} \psi
+\end{equation}
+が成り立つ。したがって、エネルギーと運動量にはそれぞれ
+\begin{equation}
+    \hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\mathbf{p}} = -i\hbar \nabla
+\end{equation}
+という演算子を対応させるのが自然である。
+これが対応原理である。
+
+そこで、先ほどの古典的関係にこれらの演算子を代入すると、時間発展を定める方程式としてシュレーディンガー方程式
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \psi = \left( -\frac{\hbar^2}{2m} \nabla^2 + \hat{V}(\mathbf{x}) \right) \psi = \hat{H} \psi
+\end{equation}
+が得られる。すなわち、古典的なエネルギー保存則を波動関数に作用する演算子の関係へと読み替えることで、量子力学の基本方程式が導かれる。これは線形な微分方程式であり、重ね合わせの原理を自然に満たしている。
+
+シュレーディンガー方程式の重要な役割は、ポテンシャルと境界条件を与えたときに、許される状態とエネルギー固有値を具体的に決める点にある。典型的な例を三つ挙げる。
+\subsection{シュレーディンガー方程式の基本的な解}
+\paragraph{無限深井戸}
+一次元で
+\[
+V(x)=
+\begin{cases}
+0 & (0 < x < L) \\
+\infty & (\text{otherwise})
+\end{cases}
+\]
+とする。壁の外では波動関数が消えなければならないため、定常状態 $\psi(x,t)=\phi(x)e^{-iEt/\hbar}$ の空間部分は
+\[
+\phi_n(x)=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L}, \quad E_n=\frac{\hbar^2\pi^2 n^2}{2mL^2}\qquad(n=1,2,\dots)
+\]
+となる。これは次のように求まる。井戸の内部では $V(x)=0$ であるから、定常状態 $\psi(x,t)=\phi(x)e^{-iEt/\hbar}$ に対して
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\phi}{dx^2}=E\phi
+\]
+である。ここで
+\[
+k^2:=\frac{2mE}{\hbar^2}
+\]
+とおけば一般解は
+\[
+\phi(x)=A\sin kx+B\cos kx
+\]
+となる。無限壁のため境界条件は
+\[
+\phi(0)=0,\qquad \phi(L)=0
+\]
+であり、最初の条件から $B=0$、二つ目の条件から
+\[
+\sin kL=0
+\qquad\Longrightarrow\qquad
+k=\frac{n\pi}{L}\qquad(n=1,2,\dots)
+\]
+を得る。したがって
+\[
+E_n=\frac{\hbar^2k^2}{2m}=\frac{\hbar^2\pi^2n^2}{2mL^2}
+\]
+となり、さらに正規化条件
+\[
+\int_0^L |\phi_n(x)|^2\,dx = 1
+\]
+から
+\[
+\phi_n(x)=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L}
+\]
+が従う。境界条件だけでエネルギーが離散化されることが分かる。
+
+\paragraph{有限ポテンシャル障壁}
+たとえば
+\[
+V(x)=
+\begin{cases}
+V_0 & (0 < x < L) \\
+0 & (\text{otherwise})
+\end{cases}
+\]
+という障壁を考える。古典力学では、粒子のエネルギーが $E<V_0$ なら粒子は障壁を越えられず、透過確率は $0$ である。しかし量子力学では、左から粒子が入射する状況を
+\[
+\psi_I(x)=e^{ikx}+r e^{-ikx}\qquad (x<0),
+\]
+\[
+\psi_{II}(x)=A e^{\kappa x}+B e^{-\kappa x}\qquad (0<x<L),
+\]
+\[
+\psi_{III}(x)=t e^{ikx}\qquad (x>L)
+\]
+と書ける。ここで
+\[
+k=\frac{\sqrt{2mE}}{\hbar},\qquad
+\kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}
+\]
+である。$\psi$ と $d\psi/dx$ の連続条件を $x=0,L$ で課すと、透過係数は
+\[
+T:=|t|^2
+=
+\left[
+1+\frac{V_0^2}{4E(V_0-E)}\sinh^2(\kappa L)
+\right]^{-1}
+\]
+となる。右辺は有限な $L$ に対して正であるから、
+\[
+E<V_0 \quad\Longrightarrow\quad T>0
+\]
+である。すなわち、障壁内部で波動関数が指数関数的に減衰しながらも消えず、その結果として古典力学では禁じられていた透過が起こる。これがトンネル効果である。
+
+\paragraph{調和振動子}
+ポテンシャル
+\[
+V(x)=\frac{1}{2}m\omega^2 x^2
+\]
+をもつ調和振動子では、生成・消滅演算子
+\[
+\hat{a}
+:=
+\sqrt{\frac{m\omega}{2\hbar}}
+\left(
+\hat{x}+\frac{i}{m\omega}\hat{p}
+\right),
+\qquad
+\hat{a}^\dagger
+:=
+\sqrt{\frac{m\omega}{2\hbar}}
+\left(
+\hat{x}-\frac{i}{m\omega}\hat{p}
+\right)
+\]
+を導入すると、
+\[
+[\hat{a},\hat{a}^\dagger]=1
+\]
+が成り立つ。ハミルトニアン
+\[
+\hat{H}
+=
+\frac{\hat{p}^2}{2m}+\frac{1}{2}m\omega^2\hat{x}^2
+\]
+は
+\[
+\hat{H}=\hbar\omega\left(\hat{a}^\dagger \hat{a}+\frac{1}{2}\right)
+\]
+と書ける。ここで
+\[
+\hat{N}:=\hat{a}^\dagger \hat{a}
+\]
+とおくと、$\hat{N}$ の固有値は $n=0,1,2,\dots$ であり、したがってエネルギー固有値は
+\[
+E_n = \hbar \omega \left(n + \frac{1}{2}\right)
+\]
+となる。とくに基底状態 $|0\rangle$ は
+\[
+\hat{a}|0\rangle = 0
+\]
+で定まり、そのエネルギーは
+\[
+E_0=\frac{\hbar\omega}{2}
+\]
+である。基底状態のエネルギーが $0$ ではなく $\hbar\omega/2$ だけ残る点は、量子揺らぎの典型例である。
+
+\subsubsection*{対称性・ネーターの定理と生成子}
+交換関係に入る前に、古典力学で対称性と保存量がどのように結び付いているかを確認しておく。ラグランジアンがある連続変換に対して不変であるとき、その対称性に対応する保存量が存在する。これがネーターの定理である。代表的な対応は
+\[
+t \mapsto t+\varepsilon, \qquad
+\mathbf{x} \mapsto \mathbf{x}+\mathbf{a}, \qquad
+\mathbf{x} \mapsto \mathbf{x}+\boldsymbol{\theta}\times \mathbf{x}
+\]
+\[
+\Longleftrightarrow
+\qquad
+H,\qquad \mathbf{P},\qquad \mathbf{J}
+\]
+であり、それぞれ時間並進、空間並進、空間回転に対する生成子が、エネルギー、運動量、角運動量になっている。
+
+ハミルトン形式では、保存量は単に「保存される量」であるだけでなく、その対称変換を生み出す生成子として働く。古典力学では、無限小変換はポアソン括弧を用いて
+\[
+\delta A = \varepsilon \{A, G\}
+\]
+と書ける。ここで $G$ が生成子、$\varepsilon$ が無限小の変換パラメータである。たとえば空間並進では $G=p$ であり、
+\[
+\delta x = \varepsilon \{x,p\} = \varepsilon
+\]
+となるから、運動量 $p$ が位置を平行移動させる生成子であることが分かる。同様に、時間並進の生成子はハミルトニアン $H$ であり、回転の生成子は角運動量 $L$ である。
+
+量子力学では、この構造が交換関係へと引き継がれる。対称変換は状態の内積、したがって遷移確率を保たなければならないから、連続対称性はユニタリ演算子で表される。単位変換の近くで連続につながる一パラメータ変換は
+\[
+\hat{U}(\varepsilon)=\exp\!\left(-\frac{i}{\hbar}\varepsilon \hat{G}\right)
+\]
+と書ける。これを $\varepsilon$ について展開すると無限小変換は
+\[
+\hat{U}(\varepsilon)^\dagger \hat{A} \hat{U}(\varepsilon)
+= \hat{A} + \frac{i\varepsilon}{\hbar}[\hat{G},\hat{A}] + O(\varepsilon^2)
+\]
+となる。したがって、古典力学の
+\[
+\delta A = \varepsilon\{A,G\}
+\]
+に対応する量として、量子力学では
+\[
+\delta \hat{A} = \frac{i\varepsilon}{\hbar}[\hat{G},\hat{A}]
+\]
+が現れる。
+
+\subsection{交換関係とその意義}
+とくに空間並進の生成子が運動量であることを量子論で表すと、位置演算子 $\hat{x}$ は
+\[
+\hat{U}(a)^\dagger \hat{x}\hat{U}(a)=\hat{x}+a
+\]
+と変換しなければならず、これが正準交換関係
+\[
+[\hat{x},\hat{p}]=i\hbar
+\]
+を導く。つまり交換関係は、古典力学における生成子とポアソン括弧の構造を量子論へ持ち込んだものと見なせる。
+実際、位置表示では $\hat{x}=x$, $\hat{p}=-i\hbar \frac{d}{dx}$ であるから、任意の波動関数 $\psi(x)$ に対して
+\[
+[\hat{x},\hat{p}]\psi(x)
+= x\left(-i\hbar \frac{d\psi}{dx}\right) + i\hbar \frac{d}{dx}(x\psi(x))
+= i\hbar \psi(x)
+\]
+となり、交換関係が確かめられる。
+
+この関係の意義は、位置と運動量が同時に鋭く定まる共通固有状態を持たないという点にある。さらに、運動量が空間並進の生成子であること、後に述べる不確定性原理、そしてハイゼンベルク方程式の構造は、いずれもこの交換関係に支えられている。
+
+\subsection{不確定性原理}
+状態 $\psi$ における物理量 $\hat{A}$ の期待値を $\langle \hat{A} \rangle$ とし、
+\[
+\Delta \hat{x} := \hat{x} - \langle \hat{x} \rangle, \quad \Delta \hat{p} := \hat{p} - \langle \hat{p} \rangle
+\]
+とおく。標準偏差は
+\[
+(\Delta x)^2 = \langle (\Delta \hat{x})^2 \rangle, \quad (\Delta p)^2 = \langle (\Delta \hat{p})^2 \rangle
+\]
+で与えられる。ここで、ベクトル $\Delta \hat{x}\psi$ と $\Delta \hat{p}\psi$ にコーシー--シュワルツの不等式を適用すると、
+\[
+(\Delta x)^2(\Delta p)^2 \ge \left| \langle \Delta \hat{x}\Delta \hat{p} \rangle \right|^2
+\]
+を得る。さらに、複素数 $z$ に対して $|z| \ge |\operatorname{Im} z|$ であることと、
+\[
+\operatorname{Im}\langle \Delta \hat{x}\Delta \hat{p} \rangle
+= \frac{1}{2i}\langle [\Delta \hat{x}, \Delta \hat{p}] \rangle
+= \frac{1}{2i}\langle [\hat{x}, \hat{p}] \rangle
+= \frac{\hbar}{2}
+\]
+を用いれば、
+\[
+\Delta x \, \Delta p \ge \frac{\hbar}{2}
+\]
+が従う。したがって、不確定性原理は測定器の不完全さではなく、交換関係そのものから出てくる量子論の構造的な制約である。
