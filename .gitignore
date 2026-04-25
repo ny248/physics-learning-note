@@ -1,0 +1,16 @@
+*.aux
+*.log
+*.pdf
+*.dvi
+*.ps
+*.idx
+*.ilg
+*.ind
+*.toc
+*.bbl
+*.blg
+*.brf
+*.fls
+*.synctex.gz
+*.fdb_latexmk
+.vscode/*
