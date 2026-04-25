@@ -1,11 +1,23 @@
 \section{単一粒子の非相対論的な量子力学}
 
+\noindent\textbf{この章の中心命題}
+\[
+\boxed{
+i\hbar\frac{\partial}{\partial t}\psi(\mathbf{x},t)
+=
+\left(
+-\frac{\hbar^2}{2m}\nabla^2+V(\mathbf{x})
+\right)\psi(\mathbf{x},t)
+}
+\]
+ポテンシャルと境界条件を与えると、この方程式が許される波動関数とエネルギー固有値を決める。
+
 \subsection{シュレーディンガー方程式の導出}
 単一粒子の非相対論的理論では、まず「古典極限では粒子のエネルギー関係に戻り、同時に波としての振る舞いを記述する」時間発展方程式を求めたい。出発点は、古典力学における粒子のエネルギーと運動量の関係
 \begin{equation}
     E = \frac{\mathbf{p}^2}{2m} + V(\mathbf{x})
 \end{equation}
-である。一方、光についてはプランクとアインシュタインにより
+である。一方、光については黒体放射と光電効果の解析から、振動数 $\nu$ の光がエネルギー $h\nu$ をもつ量子として振る舞うことが分かり、さらにコンプトン効果などから運動量も
 \[
 E = h\nu,\qquad p=\frac{h}{\lambda}
 \]
@@ -13,11 +25,12 @@ E = h\nu,\qquad p=\frac{h}{\lambda}
 \[
 E = \hbar \omega,\qquad \mathbf{p} = \hbar \mathbf{k}
 \]
-を仮定した。そこで粒子の状態を複素振幅 $\psi(\mathbf{x},t)$ で表し、その絶対値の二乗
+を仮定した。そこで粒子の状態を複素振幅 $\psi(\mathbf{x},t)$ で表す。観測で直接得られるのは、各試行で粒子がどこに検出されたかという統計である。二重スリット実験が示すように、その統計分布は振幅の重ね合わせによって決まり、したがって基本量は確率そのものではなく干渉する複素振幅でなければならない。ボルンは、その絶対値の二乗
 \[
 |\psi(\mathbf{x},t)|^2
 \]
-を位置の確率密度と読む。全確率が有限で
+を位置の確率密度と読むべきだと提案した。
+全確率が有限で
 \[
 \int_{\mathbb{R}^3} |\psi(\mathbf{x},t)|^2\,d^3x < \infty
 \]
@@ -25,7 +38,13 @@ E = \hbar \omega,\qquad \mathbf{p} = \hbar \mathbf{k}
 \[
 \mathcal{H}_1 := L^2(\mathbb{R}^3,d^3x)
 \]
-を選ぶのが自然である。
+を固定時刻の状態空間として選ぶ。これは、内積
+\[
+\langle \psi,\varphi\rangle
+:=
+\int_{\mathbb{R}^3}\psi(\mathbf{x})^*\varphi(\mathbf{x})\,d^3x
+\]
+によって全確率 $\|\psi\|^2$ を表せる空間だからである。
 
 まず、波数 $\mathbf{k}$ と角振動数 $\omega$ をもつ平面波
 \[
@@ -45,14 +64,13 @@ E = \hbar \omega,\qquad \mathbf{p} = \hbar \mathbf{k}
 \begin{equation}
     \hat{E} = i\hbar \frac{\partial}{\partial t}, \quad \hat{\mathbf{p}} = -i\hbar \nabla
 \end{equation}
-という演算子を対応させるのが自然である。
-これが対応原理である。
+という演算子を対応させる。ここでは、平面波に対する固有値が実験的な関係 $E=\hbar\omega,\mathbf{p}=\hbar\mathbf{k}$ と一致することを対応の条件としている。これが対応原理である。
 
 そこで、先ほどの古典的関係にこれらの演算子を代入すると、時間発展を定める方程式としてシュレーディンガー方程式
 \begin{equation}
     i\hbar \frac{\partial}{\partial t} \psi = \left( -\frac{\hbar^2}{2m} \nabla^2 + \hat{V}(\mathbf{x}) \right) \psi = \hat{H} \psi
 \end{equation}
-が得られる。すなわち、古典的なエネルギー保存則を波動関数に作用する演算子の関係へと読み替えることで、量子力学の基本方程式が導かれる。これは線形な微分方程式であり、重ね合わせの原理を自然に満たしている。
+が得られる。すなわち、古典的なエネルギー保存則を波動関数に作用する演算子の関係へと読み替えることで、量子力学の基本方程式が導かれる。これは線形な微分方程式であり、二つの解 $\psi_1,\psi_2$ に対して $a\psi_1+b\psi_2$ も解になるため、重ね合わせの原理と両立する。
 
 シュレーディンガー方程式の重要な役割は、ポテンシャルと境界条件を与えたときに、許される状態とエネルギー固有値を具体的に決める点にある。典型的な例を三つ挙げる。
 \subsection{シュレーディンガー方程式の基本的な解}
@@ -129,7 +147,71 @@ V_0 & (0 < x < L) \\
 k=\frac{\sqrt{2mE}}{\hbar},\qquad
 \kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}
 \]
-である。$\psi$ と $d\psi/dx$ の連続条件を $x=0,L$ で課すと、透過係数は
+である。$\psi$ と $d\psi/dx$ の連続条件を $x=0,L$ で課す。透過係数を求めるための連立方程式は
+\[
+1+r=A+B,
+\qquad
+ik(1-r)=\kappa(A-B),
+\]
+\[
+Ae^{\kappa L}+Be^{-\kappa L}=te^{ikL},
+\qquad
+\kappa(Ae^{\kappa L}-Be^{-\kappa L})=ikte^{ikL}
+\]
+という4本の方程式から決まる。まず $x=L$ の二式から
+\[
+Ae^{\kappa L}
+=
+\frac{te^{ikL}}{2}\left(1+\frac{ik}{\kappa}\right),
+\qquad
+Be^{-\kappa L}
+=
+\frac{te^{ikL}}{2}\left(1-\frac{ik}{\kappa}\right)
+\]
+を得る。これを $x=0$ の二式に代入すると、
+\[
+1+r
+=
+te^{ikL}
+\left(
+\cosh\kappa L-\frac{ik}{\kappa}\sinh\kappa L
+\right),
+\]
+\[
+1-r
+=
+te^{ikL}
+\left(
+\cosh\kappa L+\frac{i\kappa}{k}\sinh\kappa L
+\right)
+\]
+となる。二式を足して $r$ を消去すれば
+\[
+t
+=
+\frac{2e^{-ikL}}
+{2\cosh\kappa L
++i\left(\frac{\kappa}{k}-\frac{k}{\kappa}\right)\sinh\kappa L}
+\]
+である。したがって
+\[
+|t|^2
+=
+\left[
+1+\frac{1}{4}
+\left(\frac{\kappa}{k}+\frac{k}{\kappa}\right)^2
+\sinh^2(\kappa L)
+\right]^{-1}
+\]
+となる。ここで
+\[
+\left(\frac{\kappa}{k}+\frac{k}{\kappa}\right)^2
+=
+\frac{(\kappa^2+k^2)^2}{\kappa^2k^2}
+=
+\frac{V_0^2}{E(V_0-E)}
+\]
+を用いると、透過係数は
 \[
 T:=|t|^2
 =
@@ -142,7 +224,32 @@ T:=|t|^2
 E<V_0 \quad\Longrightarrow\quad T>0
 \]
 である。すなわち、障壁内部で波動関数が指数関数的に減衰しながらも消えず、その結果として古典力学では禁じられていた透過が起こる。これがトンネル効果である。
+図~\ref{fig:tunneling} はこの状況の模式図である。障壁内部では振幅が指数関数的に小さくなるが、有限の幅 $L$ をもつ限り右側へ抜けた成分が残る。
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+    \draw[->] (-0.4,0) -- (7.2,0) node[right] {$x$};
+    \draw[->] (0,-0.2) -- (0,3.4) node[above] {$V(x),\,\psi(x)$};
+
+    \draw[thick] (0,0.4) -- (2.0,0.4) -- (2.0,2.5) -- (4.8,2.5) -- (4.8,0.4) -- (6.8,0.4);
+    \draw[dashed] (0,1.5) -- (6.8,1.5);
+
+    \node[left] at (0,2.5) {$V_0$};
+    \node[right] at (6.8,1.5) {$E$};
+    \node[below] at (2.0,0) {$0$};
+    \node[below] at (4.8,0) {$L$};
+
+    \draw[blue,thick,samples=120,domain=0.2:2.0,smooth]
+        plot (\x,{1.05 + 0.28*sin(deg(6.3*(\x-0.2)))});
+    \draw[blue,thick,samples=140,domain=2.0:4.8,smooth]
+        plot (\x,{1.05 + 0.28*exp(-1.15*(\x-2.0))*sin(deg(6.3*(\x-0.2)))});
+    \draw[blue,thick,samples=120,domain=4.8:6.6,smooth]
+        plot (\x,{1.05 + 0.07*sin(deg(6.3*(\x-0.2)))});
+\end{tikzpicture}
+\caption{有限ポテンシャル障壁に対するトンネル効果の模式図。古典力学では $E<V_0$ の粒子は障壁を越えられないが、量子力学では障壁内部で波動関数が減衰しつつ、右側にも有限の透過振幅が残る。}
+\label{fig:tunneling}
+\end{figure}
 \paragraph{調和振動子}
 ポテンシャル
 \[
@@ -182,7 +289,46 @@ V(x)=\frac{1}{2}m\omega^2 x^2
 \[
 \hat{N}:=\hat{a}^\dagger \hat{a}
 \]
-とおくと、$\hat{N}$ の固有値は $n=0,1,2,\dots$ であり、したがってエネルギー固有値は
+とおく。$\hat{N}$ の固有値を求めるため、交換関係から
+\[
+[\hat{N},\hat{a}^\dagger]=\hat{a}^\dagger,
+\qquad
+[\hat{N},\hat{a}]=-\hat{a}
+\]
+が従うことを使う。もし
+\[
+\hat{N}|n\rangle=n|n\rangle
+\]
+なら、
+\[
+\hat{N}\hat{a}^\dagger|n\rangle
+=
+(n+1)\hat{a}^\dagger|n\rangle,
+\qquad
+\hat{N}\hat{a}|n\rangle
+=
+(n-1)\hat{a}|n\rangle
+\]
+である。すなわち、$\hat{a}^\dagger$ は $\hat{N}$ の固有値を1だけ上げ、$\hat{a}$ は1だけ下げる。また
+\[
+\langle n|\hat{N}|n\rangle
+=
+\|\hat{a}|n\rangle\|^2
+\ge 0
+\]
+であるから、固有値は負にはなれない。したがって降下操作はどこかで止まり、最低状態 $|0\rangle$ は
+\[
+\hat{a}|0\rangle=0,
+\qquad
+\hat{N}|0\rangle=0
+\]
+を満たす。そこから $\hat{a}^\dagger$ を繰り返し作用させることで
+\[
+|n\rangle\propto(\hat{a}^\dagger)^n|0\rangle,
+\qquad
+n=0,1,2,\dots
+\]
+が得られる。ゆえに $\hat{N}$ の固有値は $n=0,1,2,\dots$ であり、エネルギー固有値は
 \[
 E_n = \hbar \omega \left(n + \frac{1}{2}\right)
 \]
@@ -197,7 +343,23 @@ E_0=\frac{\hbar\omega}{2}
 である。基底状態のエネルギーが $0$ ではなく $\hbar\omega/2$ だけ残る点は、量子揺らぎの典型例である。
 
 \subsubsection*{対称性・ネーターの定理と生成子}
-交換関係に入る前に、古典力学で対称性と保存量がどのように結び付いているかを確認しておく。ラグランジアンがある連続変換に対して不変であるとき、その対称性に対応する保存量が存在する。これがネーターの定理である。代表的な対応は
+交換関係に入る前に、古典力学で対称性と保存量がどのように結び付いているかを確認しておく。ラグランジアン $L(q,\dot q,t)$ が無限小変換
+\[
+q_i \mapsto q_i + \varepsilon \Delta q_i,
+\qquad
+t \mapsto t + \varepsilon \Delta t
+\]
+の下で全微分を除いて不変、すなわち
+\[
+\delta L = \varepsilon \frac{dF}{dt}
+\]
+となるとき、ネーターの定理により
+\[
+Q = \sum_i p_i \Delta q_i - H\Delta t - F,
+\qquad
+p_i := \frac{\partial L}{\partial \dot q_i}
+\]
+は保存される。ここで $p_i$ は共役運動量、$H:=\sum_i p_i\dot q_i-L$ はハミルトニアンである。代表的な対応は
 \[
 t \mapsto t+\varepsilon, \qquad
 \mathbf{x} \mapsto \mathbf{x}+\mathbf{a}, \qquad
@@ -284,3 +446,5 @@ H,\qquad \mathbf{P},\qquad \mathbf{J}
 \Delta x \, \Delta p \ge \frac{\hbar}{2}
 \]
 が従う。したがって、不確定性原理は測定器の不完全さではなく、交換関係そのものから出てくる量子論の構造的な制約である。
+
+ここまでで、非相対論的一粒子量子力学の基本構造はそろった。次節では、同じ理論を状態ベクトルではなく演算子の時間発展を前面に出すハイゼンベルク描像で書き直す。
