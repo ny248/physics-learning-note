@@ -1,22 +1,10 @@
 %!LW recipe=latexmk (platex)
 \documentclass{article}
 
-\usepackage{graphicx,amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx,xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
 
-% 一般注意（ユーザ指示の要約）
-% これは初学者用のノートです、以下のことに気をつけなさい。
-% 1. 未定義の用語・記号を使わない。使う前に定義する。
-% 2. 話の粒度を急に上げない。新概念は一段ずつ導入する。
-% 3. 重要な主張は数式で骨格を示す。
-% 4. 節の中心になる方程式を明示する。
-% 5. 冗長さは避けるが、論理の飛躍は避ける。
-% 6. 後の章で扱う内容を不用意に前倒ししない。
-% 7. 各節では、現象または既知の理論的事実、既存理論の限界、そこから課される要請、新しい方程式や構成、という順で書く。
-% 8. 現象を述べるときは、古典論の予測と観測事実の両方を、可能な限り対応する数式とともに書く。
-% 9. ヒルベルト空間や交換関係など理論固有のデータは、その理論が必要になった段階で導入する。
-% 10. 例は結果だけで済ませず、境界条件や固有値条件から結論が出る途中式を書く。
-% 11. 一般化固有関数や演算子値分布のような技術的注意は、本筋を示した後で述べる。
-% 12. 「最小修正」のような曖昧な評価語を避け、何を要請し何を置くかを具体的に書く。
 
 \title{量子力学}
 \author{a}
@@ -26,15 +14,28 @@
 
 \maketitle
 
+\renewcommand{\contentsname}{目次}
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section*{このノートの見取り図}
+本ノートの流れは次の四段階である。
+\begin{enumerate}
+\item まず、古典論が微視的現象を説明できないことを確認し、その代わりに量子力学の公理的枠組みを導入する。
+\item 次に、単一粒子の非相対論的量子力学を具体例で固め、同じ理論をハイゼンベルク描像でも書けることを確認する。
+\item その上で、相対論的な一粒子方程式としてクライン--ゴルドン方程式とディラック方程式を調べ、固定粒子数の多粒子量子力学がどこまで有効かを整理する。
+\item 最後に、粒子数が変化しうる理論として場の量子論を定式化し、その最も基本的な相互作用の例として量子電磁気学を導入する。
+\end{enumerate}
+したがって全体としては、「非相対論的一粒子論を固める」「その演算子表示を確認する」「相対論の下で一粒子論の限界を見極める」「固定粒子数の記述を整理する」「粒子数の変化を扱うために場の量子論へ移る」という順に読むと流れが追いやすい。
+
 % Top-level sections are split into separate files for easier editing.
 \input{sections/01_history_background.tex}
 \input{sections/02_axioms_and_notation.tex}
 \input{sections/03_nonrelativistic_single_particle.tex}
-\input{sections/04_motivation_for_relativistic_theory.tex}
+\input{sections/08_from_heisenberg_to_qft.tex}
 \input{sections/05_relativistic_wave_equations.tex}
 \input{sections/06_dirac_equation.tex}
 \input{sections/07_n_particle_quantum_mechanics.tex}
-\input{sections/08_from_heisenberg_to_qft.tex}
 \input{sections/09_qft_framework.tex}
 \input{sections/10_qed.tex}
 
