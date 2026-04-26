@@ -5,12 +5,6 @@
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
 
-%TODO:
-% ゲージ理論
-% 標準模型(強い力、弱い力)
-% 繰り込み
-% CPTなどの対称性について
-
 \newsavebox{\experimentalfactbox}
 \newenvironment{experimentalfact}[1]{%
   \par\medskip\noindent
@@ -41,14 +35,15 @@
 \tableofcontents
 
 \section*{このノートの見取り図}
-本ノートの流れは次の四段階である。
+本ノートの流れは次の五段階である。
 \begin{enumerate}
 \item まず、古典論が微視的現象を説明できないことを確認し、その代わりに量子力学の公理的枠組みを導入する。
 \item 次に、単一粒子の非相対論的量子力学を具体例で固め、同じ理論をハイゼンベルク描像でも書けることを確認する。
 \item その上で、相対論的な一粒子方程式としてクライン--ゴルドン方程式とディラック方程式を調べ、固定粒子数の多粒子量子力学がどこまで有効かを整理する。
-\item 最後に、粒子数が変化しうる理論として場の量子論を定式化し、その最も基本的な相互作用の例として量子電磁気学を導入する。
+\item 次に、粒子数が変化しうる理論として場の量子論を定式化し、その最も基本的な相互作用の例として量子電磁気学を導入する。
+\item 最後に、QED から一般のゲージ理論へ視野を広げ、繰り込み、離散対称性、標準模型への接続を整理する。
 \end{enumerate}
-したがって全体としては、「非相対論的一粒子論を固める」「その演算子表示を確認する」「相対論の下で一粒子論の限界を見極める」「固定粒子数の記述を整理する」「粒子数の変化を扱うために場の量子論へ移る」という順に読むと流れが追いやすい。
+したがって全体としては、「非相対論的一粒子論を固める」「その演算子表示を確認する」「相対論の下で一粒子論の限界を見極める」「固定粒子数の記述を整理する」「粒子数の変化を扱うために場の量子論へ移る」「相互作用の形を対称性と実験事実から読む」という順に読むと流れが追いやすい。
 
 % Top-level sections are split into separate files for easier editing.
 \input{sections/history_background.tex}
@@ -60,5 +55,9 @@
 \input{sections/n_particle_quantum_mechanics.tex}
 \input{sections/qft_framework.tex}
 \input{sections/qed.tex}
+\input{sections/gauge_theory.tex}
+\input{sections/renormalization.tex}
+\input{sections/discrete_symmetries.tex}
+\input{sections/standard_model_outlook.tex}
 
 \end{document}
