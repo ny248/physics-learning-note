@@ -5,6 +5,28 @@
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
 
+%TODO:
+% ゲージ理論
+% 標準模型(強い力、弱い力)
+% 繰り込み
+% CPTなどの対称性について
+
+\newsavebox{\experimentalfactbox}
+\newenvironment{experimentalfact}[1]{%
+  \par\medskip\noindent
+  \begin{lrbox}{\experimentalfactbox}%
+  \begin{minipage}{0.94\linewidth}%
+  \textbf{実験事実：#1}\par\smallskip
+}{%
+  \end{minipage}%
+  \end{lrbox}%
+  \fcolorbox{black!35}{black!4}{\usebox{\experimentalfactbox}}%
+  \par\medskip
+}
+\newcommand{\factitem}[2]{%
+  \par\smallskip\noindent\textbf{#1}：#2\par
+}
+
 
 \title{量子力学}
 \author{a}
