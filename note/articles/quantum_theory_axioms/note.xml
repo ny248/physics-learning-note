@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wp="http://wordpress.org/export/1.2/">
+  <channel>
+    <title>Physics Articles</title>
+    <link>https://example.invalid/physics</link>
+    <description>Physics article import data</description>
+    <pubDate>Sun, 02 Aug 2026 03:00:00 +0000</pubDate>
+    <language>ja</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <wp:base_site_url>https://example.invalid/physics</wp:base_site_url>
+    <wp:base_blog_url>https://example.invalid/physics</wp:base_blog_url>
+    <item>
+      <title><![CDATA[量子力学をどう定式化するか――ヒルベルト空間から始める公理]]></title>
+      <link>https://example.invalid/physics/quantum-theory-axioms</link>
+      <pubDate>Sun, 02 Aug 2026 03:00:00 +0000</pubDate>
+      <dc:creator><![CDATA[author]]></dc:creator>
+      <guid isPermaLink="false">physics-quantum-theory-axioms-20260802</guid>
+      <description></description>
+      <content:encoded><![CDATA[
+<p>黒体放射、光電効果、原子の安定性と線スペクトルは、微視的な現象を古典物理学の状態概念と連続的なエネルギー交換だけでは説明できないことを示します。そこで必要になるのは、個別の現象ごとに補正式を加えることではなく、状態、測定値、確率、時間発展を一つの枠組みで定めることです。</p>
+<p>歴史的には、この枠組みは複数の発見を経て段階的に形作られました。しかしこの記事では歴史順を追わず、量子力学の公理を先に提示します。その後、各公理が何を定め、何を定めないのかを確認します。</p>
+<h2>この記事でわかること</h2>
+<p>この記事では、閉じた量子系の純粋状態と理想的な射影測定を扱います。公理の分け方や数え方には流儀がありますが、ここでは状態、観測量、測定確率、測定後の状態、時間発展、複合系という六つの役割に分けます。混合状態、一般化測定、外界と相互作用する開放系は扱いません。</p>
+<p>量子系には複素ヒルベルト空間 $${\mathcal H}$$ を対応させ、その状態を正規化されたベクトル $${|\psi\rangle}$$ で表します。物理量 $${A}$$ には自己共役演算子 $${\hat A}$$ を対応させます。$${P_a}$$ は測定値 $${a}$$ に対応する射影演算子、$${U(t,t_0)}$$ は時刻 $${t_0}$$ から $${t}$$ までの時間発展、$${\hat H}$$ はエネルギーを表すハミルトニアンです。</p>
+<p>この記法を使うと、公理の中心は次の式にまとめられます。</p>
+<p>$$
+|\psi\rangle\in\mathcal H,
+\qquad
+\langle\psi|\psi\rangle=1,
+\qquad
+|\psi\rangle\sim e^{i\theta}|\psi\rangle
+$$</p>
+<p>$$
+\hat A=\hat A^\dagger,
+\qquad
+\hat A=\sum_a aP_a
+$$</p>
+<p>$$
+p(a)=\langle\psi|P_a|\psi\rangle
+$$</p>
+<p>$$
+|\psi\rangle
+\longrightarrow
+\frac{P_a|\psi\rangle}
+{\sqrt{\langle\psi|P_a|\psi\rangle}}
+$$</p>
+<p>$$
+|\psi(t)\rangle
+=
+U(t,t_0)|\psi(t_0)\rangle,
+\qquad
+U^\dagger U=I
+$$</p>
+<p>$$
+i\hbar\frac{d}{dt}|\psi(t)\rangle
+=
+\hat H|\psi(t)\rangle
+$$</p>
+<p>$$
+\mathcal H_{AB}=\mathcal H_A\otimes\mathcal H_B
+$$</p>
+<p>ここで $${\theta}$$ は実数、$${i}$$ は虚数単位、$${\hbar=h/(2\pi)}$$ は換算プランク定数、$${I}$$ は恒等演算子です。記号 $${\dagger}$$ は随伴を表します。以下では、これらの式を上から順に説明します。</p>
+<h2>1. 数学的な舞台は複素ヒルベルト空間である</h2>
+<h3>複素ベクトル空間</h3>
+<p>複素ベクトル空間とは、ベクトル $${|\psi\rangle}$$ と $${|\phi\rangle}$$ に対して、複素数 $${\alpha}$$、$${\beta}$$ を係数とする線形結合</p>
+<p>$$
+\alpha|\psi\rangle+\beta|\phi\rangle
+$$</p>
+<p>も同じ空間のベクトルになる集合です。状態ベクトルを右向きの記号 $${|\psi\rangle}$$ で書く記法をケットと呼びます。</p>
+<p>各ケット $${|\psi\rangle}$$ には、ベクトルを複素数へ写す線形汎関数 $${\langle\psi|}$$ が対応します。左向きの記号 $${\langle\psi|}$$ をブラと呼びます。ブラとケットを組み合わせた</p>
+<p>$$
+\langle\phi|\psi\rangle
+$$</p>
+<p>は二つのベクトルの内積です。内積は</p>
+<p>$$
+\langle\phi|\psi\rangle
+=
+\langle\psi|\phi\rangle^*,
+\qquad
+\langle\psi|\psi\rangle\geq0
+$$</p>
+<p>を満たします。$${*}$$ は複素共役です。$${\langle\psi|\psi\rangle=0}$$ となるのは $${|\psi\rangle=0}$$ の場合だけです。</p>
+<h3>ノルムと完備性</h3>
+<p>内積から、ベクトルの大きさであるノルムを</p>
+<p>$$
+\|\psi\|
+=
+\sqrt{\langle\psi|\psi\rangle}
+$$</p>
+<p>と定義します。</p>
+<p>内積を備えた複素ベクトル空間が、このノルムについて完備であるとき、複素ヒルベルト空間と呼びます。完備とは、空間内のベクトル列が互いに限りなく近づくなら、その極限も同じ空間内に存在するという性質です。この条件によって、無限級数で表される状態の極限を空間の外へ逃がさずに扱えます。</p>
+<h3>正規直交基底</h3>
+<p>ベクトル $${|n\rangle}$$ の集合が</p>
+<p>$$
+\langle m|n\rangle=\delta_{mn}
+$$</p>
+<p>を満たし、空間の任意のベクトルを展開できるとき、正規直交基底と呼びます。$${\delta_{mn}}$$ は、$${m=n}$$ なら1、それ以外なら0となるクロネッカーのデルタです。</p>
+<p>基底が完全なら、恒等演算子は</p>
+<p>$$
+I=\sum_n|n\rangle\langle n|
+$$</p>
+<p>と書けます。したがって任意のベクトルは</p>
+<p>$$
+|\psi\rangle
+=
+I|\psi\rangle
+=
+\sum_n|n\rangle\langle n|\psi\rangle
+=
+\sum_n c_n|n\rangle
+$$</p>
+<p>と展開できます。展開係数は $${c_n=\langle n|\psi\rangle}$$ です。</p>
+<h2>2. 状態はヒルベルト空間の射線である</h2>
+<p>量子系の純粋状態は、ヒルベルト空間 $${\mathcal H}$$ のゼロでないベクトルによって表します。計算では</p>
+<p>$$
+\langle\psi|\psi\rangle=1
+$$</p>
+<p>となるように正規化した代表を使います。</p>
+<p>ただし、$${|\psi\rangle}$$ と、全体へ位相を掛けた</p>
+<p>$$
+e^{i\theta}|\psi\rangle
+$$</p>
+<p>は同じ物理状態を表します。実際、内積の絶対値の二乗で計算される確率では、全体位相が打ち消されます。したがって物理状態は、ベクトル一本ではなく、ゼロでない複素定数倍を同一視した射線に対応します。</p>
+<p>ヒルベルト空間がベクトル空間であるため、二つの状態ベクトル $${|\psi\rangle}$$ と $${|\phi\rangle}$$ から線形結合</p>
+<p>$$
+\alpha|\psi\rangle+\beta|\phi\rangle
+$$</p>
+<p>を作れます。これが重ね合わせです。全体位相は観測に影響しませんが、$${\alpha}$$ と $${\beta}$$ の相対的な位相は測定確率を変え得ます。</p>
+<h2>3. 観測量は自己共役演算子である</h2>
+<p>演算子 $${\hat A}$$ は、ヒルベルト空間のベクトルを別のベクトルへ写す線形写像です。すなわち、</p>
+<p>$$
+\hat A
+\left(\alpha|\psi\rangle+\beta|\phi\rangle\right)
+=
+\alpha\hat A|\psi\rangle
++
+\beta\hat A|\phi\rangle
+$$</p>
+<p>を満たします。</p>
+<p>演算子 $${\hat A}$$ の随伴 $${\hat A^\dagger}$$ は、任意の $${|\psi\rangle}$$、$${|\phi\rangle}$$ に対して</p>
+<p>$$
+\langle\phi|\hat A|\psi\rangle
+=
+\langle\psi|\hat A^\dagger|\phi\rangle^*
+$$</p>
+<p>を満たす演算子です。$${\hat A=\hat A^\dagger}$$ である演算子を自己共役演算子と呼びます。量子力学では、測定可能な物理量を自己共役演算子へ対応させます。</p>
+<p>この記事では、固有値が離散的な場合を扱います。$${a}$$ を固有値、$${P_a}$$ を固有値 $${a}$$ の固有空間への射影演算子とすると、自己共役演算子は</p>
+<p>$$
+\hat A=\sum_a aP_a
+$$</p>
+<p>と分解できます。射影演算子は</p>
+<p>$$
+P_aP_b=\delta_{ab}P_a,
+\qquad
+\sum_aP_a=I
+$$</p>
+<p>を満たします。物理量 $${A}$$ を測定したときに得られる可能性のある値は、$${\hat A}$$ の固有値 $${a}$$ です。</p>
+<p>自己共役性から固有値が実数になるため、測定値を実数として扱えます。位置や運動量のように連続スペクトルをもつ演算子では、和を積分へ置き換える必要がありますが、ここではその数学的な詳細には進みません。</p>
+<h2>4. 測定確率はボルン則で与えられる</h2>
+<p>正規化された状態 $${|\psi\rangle}$$ で物理量 $${A}$$ を測定するとき、値 $${a}$$ を得る確率を</p>
+<p>$$
+p(a)=\langle\psi|P_a|\psi\rangle
+$$</p>
+<p>と定めます。これがボルン則です。</p>
+<p>$${P_a=P_a^\dagger=P_a^2}$$ なので、確率は</p>
+<p>$$
+p(a)
+=
+\langle\psi|P_a^\dagger P_a|\psi\rangle
+=
+\|P_a|\psi\rangle\|^2
+\geq0
+$$</p>
+<p>となり、負にはなりません。また、射影演算子の完全性から</p>
+<p>$$
+\sum_a p(a)
+=
+\left\langle\psi\left|\sum_aP_a\right|\psi\right\rangle
+=
+\langle\psi|I|\psi\rangle
+=1
+$$</p>
+<p>です。したがって $${p(a)}$$ は確率分布として必要な条件を満たします。</p>
+<p>物理量 $${A}$$ の期待値は、測定を同じ準備で多数回繰り返したときの平均として</p>
+<p>$$
+\langle A\rangle_\psi
+=
+\sum_a a\,p(a)
+$$</p>
+<p>と定義されます。スペクトル分解を代入すれば、</p>
+<p>$$
+\langle A\rangle_\psi
+=
+\sum_a a\langle\psi|P_a|\psi\rangle
+=
+\langle\psi|\hat A|\psi\rangle
+$$</p>
+<p>となります。</p>
+<h2>5. 理想測定後の状態は射影で定まる</h2>
+<p>値 $${a}$$ を得た理想的な射影測定の直後には、状態を対応する固有空間へ射影し、再び正規化します。$${p(a)&gt;0}$$ のとき、測定後の状態は</p>
+<p>$$
+|\psi_a\rangle
+=
+\frac{P_a|\psi\rangle}{\sqrt{p(a)}}
+=
+\frac{P_a|\psi\rangle}
+{\sqrt{\langle\psi|P_a|\psi\rangle}}
+$$</p>
+<p>です。</p>
+<p>射影演算子は $${P_a^2=P_a}$$ を満たすため、</p>
+<p>$$
+P_a|\psi_a\rangle
+=
+\frac{P_a^2|\psi\rangle}{\sqrt{p(a)}}
+=
+|\psi_a\rangle
+$$</p>
+<p>となります。したがって、同じ物理量を直後にもう一度理想測定すれば、値 $${a}$$ が確率1で得られます。</p>
+<p>この公理は理想的な射影測定についてのものです。実際の測定装置が系とどのように相互作用するかや、より一般的な測定の記述までを、この式だけで表しているわけではありません。</p>
+<h2>6. 閉じた系の時間発展はユニタリである</h2>
+<p>外界との相互作用を無視できる閉じた系では、時刻 $${t_0}$$ の状態から時刻 $${t}$$ の状態への変化を、線形演算子 $${U(t,t_0)}$$ によって</p>
+<p>$$
+|\psi(t)\rangle
+=
+U(t,t_0)|\psi(t_0)\rangle
+$$</p>
+<p>と表します。</p>
+<p>時間発展は内積を保存しなければなりません。その条件は</p>
+<p>$$
+U(t,t_0)^\dagger U(t,t_0)=I
+$$</p>
+<p>です。この条件を満たす演算子をユニタリ演算子と呼びます。実際、</p>
+<p>$$
+\langle\psi(t)|\psi(t)\rangle
+=
+\langle\psi(t_0)|U^\dagger U|\psi(t_0)\rangle
+=
+\langle\psi(t_0)|\psi(t_0)\rangle
+$$</p>
+<p>となるため、全確率が時間とともに変化しません。</p>
+<p>さらに、時間発展は連続であり、途中の時刻 $${t_1}$$ を経由しても同じ結果を与えると要請します。すなわち、</p>
+<p>$$
+U(t_2,t_1)U(t_1,t_0)=U(t_2,t_0),
+\qquad
+U(t,t)=I
+$$</p>
+<p>です。物理法則が時刻そのものに依存しない閉じた系では、$${U(t,t_0)}$$ は時間差 $${t-t_0}$$ だけに依存します。この連続なユニタリ時間発展には自己共役な生成子が存在し、その生成子へエネルギーの次元を与えた演算子をハミルトニアン $${\hat H}$$ と呼びます。</p>
+<p>$${\hat H}$$ が時間に依存しない場合、時間発展演算子は</p>
+<p>$$
+U(t,t_0)
+=
+\exp\left[-\frac{i}{\hbar}\hat H(t-t_0)\right]
+$$</p>
+<p>と書けます。$${\hat H}$$ が自己共役なら、指数演算子はユニタリです。</p>
+<p>この式を時間で微分すると、</p>
+<p>$$
+\frac{d}{dt}|\psi(t)\rangle
+=
+-\frac{i}{\hbar}\hat H|\psi(t)\rangle
+$$</p>
+<p>なので、両辺へ $${i\hbar}$$ を掛けて</p>
+<p>$$
+i\hbar\frac{d}{dt}|\psi(t)\rangle
+=
+\hat H|\psi(t)\rangle
+$$</p>
+<p>を得ます。これが抽象的な形のシュレーディンガー方程式です。</p>
+<p>この段階では、状態を空間上の波動関数として表しておらず、$${\hat H}$$ の具体的な形も指定していません。どのヒルベルト空間とハミルトニアンを選ぶかは、対象とする物理系に応じて別に与える必要があります。</p>
+<h2>7. 複合系の状態空間はテンソル積である</h2>
+<p>二つの量子系 $${A}$$ と $${B}$$ のヒルベルト空間を、それぞれ $${\mathcal H_A}$$ と $${\mathcal H_B}$$ とします。複合系 $${AB}$$ のヒルベルト空間は</p>
+<p>$$
+\mathcal H_{AB}
+=
+\mathcal H_A\otimes\mathcal H_B
+$$</p>
+<p>です。</p>
+<p>系 $${A}$$ が $${|\psi\rangle_A}$$、系 $${B}$$ が $${|\phi\rangle_B}$$ にあるなら、複合系の積状態は</p>
+<p>$$
+|\psi\rangle_A\otimes|\phi\rangle_B
+$$</p>
+<p>と書けます。しかしテンソル積空間には、単一の積では書けない状態も存在します。たとえば、各系が二つの基底状態 $${|0\rangle}$$、$${|1\rangle}$$ をもつ場合、</p>
+<p>$$
+|\Psi\rangle
+=
+\frac{1}{\sqrt2}
+\left(
+|0\rangle_A\otimes|0\rangle_B
++
+|1\rangle_A\otimes|1\rangle_B
+\right)
+$$</p>
+<p>は一般に一つの積状態へ分解できません。このような状態をエンタングル状態と呼びます。エンタングルメントは、複合系の状態空間をテンソル積とする公理から生じます。</p>
+<h2>8. 二準位系で公理をまとめて使う</h2>
+<p>二つの正規直交基底 $${|0\rangle}$$、$${|1\rangle}$$ をもつ量子系を考えます。この系のヒルベルト空間は $${\mathbb C^2}$$ です。</p>
+<p>正規化された一般の純粋状態は</p>
+<p>$$
+|\psi\rangle
+=
+\alpha|0\rangle+\beta|1\rangle,
+\qquad
+|\alpha|^2+|\beta|^2=1
+$$</p>
+<p>と書けます。</p>
+<p>二つの実数 $${a_0}$$、$${a_1}$$ を測定値とする観測量を</p>
+<p>$$
+\hat A
+=
+a_0|0\rangle\langle0|
++
+a_1|1\rangle\langle1|
+$$</p>
+<p>とします。対応する射影演算子は</p>
+<p>$$
+P_{a_0}=|0\rangle\langle0|,
+\qquad
+P_{a_1}=|1\rangle\langle1|
+$$</p>
+<p>です。ボルン則から、二つの測定値を得る確率は</p>
+<p>$$
+p(a_0)
+=
+\langle\psi|P_{a_0}|\psi\rangle
+=
+|\alpha|^2
+$$</p>
+<p>$$
+p(a_1)
+=
+\langle\psi|P_{a_1}|\psi\rangle
+=
+|\beta|^2
+$$</p>
+<p>となります。値 $${a_0}$$ を得た直後の状態は</p>
+<p>$$
+\frac{P_{a_0}|\psi\rangle}{\sqrt{p(a_0)}}
+=
+\frac{\alpha|0\rangle}{|\alpha|}
+$$</p>
+<p>です。ここでは $${\alpha\neq0}$$ としています。右辺は全体位相を除けば $${|0\rangle}$$ と同じ状態です。</p>
+<p>次に、$${|0\rangle}$$ と $${|1\rangle}$$ のエネルギーをそれぞれ $${E_0}$$、$${E_1}$$ とするハミルトニアン</p>
+<p>$$
+\hat H
+=
+E_0|0\rangle\langle0|
++
+E_1|1\rangle\langle1|
+$$</p>
+<p>を考えます。時刻0の状態を $${|\psi(0)\rangle=\alpha|0\rangle+\beta|1\rangle}$$ とすると、時間発展は</p>
+<p>$$
+|\psi(t)\rangle
+=
+e^{-i\hat Ht/\hbar}|\psi(0)\rangle
+$$</p>
+<p>です。基底状態はハミルトニアンの固有状態なので、指数演算子は各成分へ位相を掛けます。したがって、</p>
+<p>$$
+|\psi(t)\rangle
+=
+\alpha e^{-iE_0t/\hbar}|0\rangle
++
+\beta e^{-iE_1t/\hbar}|1\rangle
+$$</p>
+<p>となります。ノルムは</p>
+<p>$$
+\langle\psi(t)|\psi(t)\rangle
+=
+|\alpha|^2+|\beta|^2
+=1
+$$</p>
+<p>のまま保存されます。この一例の中で、状態、観測量、Born則、測定後の状態、ユニタリ時間発展が一つの計算としてつながっています。</p>
+<h2>9. 公理が実験事実をどう受け止めるか</h2>
+<p>公理は、黒体放射や原子スペクトルの具体的な数値を、それだけで予測するものではありません。公理が与えるのは、物理系を記述する共通の形式です。</p>
+<ul><li>原子の離散的なエネルギーは、ハミルトニアン $${\hat H}$$ の離散固有値として表される。</li><li>光の放出・吸収で現れる $${h\nu=E_n-E_m}$$ は、二つのエネルギー固有値の差と光のエネルギーを対応させる。</li><li>黒体放射を計算するには、電磁場の各モードに対する状態空間とハミルトニアンを具体的に選ぶ必要がある。</li><li>光電効果を計算するには、光と電子の複合系および両者の相互作用を表すハミルトニアンが必要になる。</li></ul>
+<p>したがって、「状態はヒルベルト空間の射線である」という公理だけから、エネルギー準位や遷移確率が自動的に決まるわけではありません。公理に加えて、対象となる系のハミルトニアンと測定する観測量を指定して初めて、実験と比較できる予測が得られます。</p>
+<h2>まとめ</h2>
+<p>量子力学の公理的定式化では、状態、観測量、測定、時間発展、複合系を次のように分担させます。</p>
+<ul><li>状態は複素ヒルベルト空間の正規化された射線で表す。</li><li>観測量は自己共役演算子で表す。</li><li>測定値の確率はボルン則で与える。</li><li>理想測定後の状態は対応する固有空間への射影で与える。</li><li>閉じた系の時間発展はユニタリ演算子で表し、その生成子をハミルトニアンとする。</li><li>複合系の状態空間は部分系のヒルベルト空間のテンソル積とする。</li></ul>
+<p>この枠組みを具体的な粒子へ適用するには、ヒルベルト空間、観測量、ハミルトニアンを実際に選ぶ必要があります。位置表示を選び、ハミルトニアンを位置と運動量で表したとき、抽象的なシュレーディンガー方程式は波動関数に対する微分方程式として具体化されます。</p>
+]]></content:encoded>
+      <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+      <wp:post_id>1</wp:post_id>
+      <wp:post_date><![CDATA[2026-08-02 12:00:00]]></wp:post_date>
+      <wp:post_date_gmt><![CDATA[2026-08-02 03:00:00]]></wp:post_date_gmt>
+      <wp:comment_status><![CDATA[closed]]></wp:comment_status>
+      <wp:ping_status><![CDATA[closed]]></wp:ping_status>
+      <wp:post_name><![CDATA[quantum-theory-axioms]]></wp:post_name>
+      <wp:status><![CDATA[draft]]></wp:status>
+      <wp:post_parent>0</wp:post_parent>
+      <wp:menu_order>0</wp:menu_order>
+      <wp:post_type><![CDATA[post]]></wp:post_type>
+      <wp:post_password><![CDATA[]]></wp:post_password>
+      <wp:is_sticky>0</wp:is_sticky>
+      <category domain="category" nicename="physics"><![CDATA[物理学]]></category>
+    </item>
+  </channel>
+</rss>
